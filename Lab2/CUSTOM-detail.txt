@@ -1,0 +1,38 @@
+(a) Source of Data : The data and csv files were from https://www.kaggle.com/datasets/anud3ep/valorant?select=teams.csv
+ and the website states the author as Alex useranme : anud3ep
+
+(b) Descriptions: The tables defined are as follows
+
+agents:
+
+Holds data for individual agents that are in the game of Valorant. Specifically stats gathered during a 3 month
+period of professional play pertaining to each individual character.  
+
+maps:
+
+Holds data for each Valorant map containing statistics gathered during the same 3 month period of professional play
+pertaining to each map.
+
+players:
+
+Holds data for each player in Valorants pro-scene and maps each player to a professional team held in the team teams table
+while keeping track of statistics gathered during the same 3 month period of professional play pertaining to each player.
+
+teams:
+
+Holds data pertaining to each Valorant team with statistics gathered during the same 3 month period of professional play
+containing important statistics during that period of play. 
+
+
+(c) Mapping Challenges: I had a challenge storing certain values as floats since some of the numbers contained in the 
+csv files needed to be stored as numeric or else a truncation error arose. I also had issues figuring out how to store
+percentages and instead opted to store them as VARCHAR for simplicity. The FOREIGN KEY constraint that references a 
+players team to team names also had issues with certain players on a team that wasnt stored in the teams csv
+so I truncated the data down so I no longer had those issues also because the amount of players in professional play was
+over 3000 players and I felt that would be too many insertions. 
+
+(d) Non-Trivial Queries: 
+
+1. What was the average kills per round of all players on Cloud9's team?
+2. Of agents with a higher than 20% pickrate had the best average damage per round ADR?
+3. Of players with a higher than 1.0 K/D were on a team have the us country code?
